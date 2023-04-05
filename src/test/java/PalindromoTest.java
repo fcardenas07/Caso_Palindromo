@@ -35,8 +35,8 @@ class PalindromoTest {
     @Test
     void palabrasNoPalindromo() {
         assertAll("No son Palindromos",
-                () -> assertTrue(Palindromo.esPalindromo("acas")),
-                () -> assertTrue(Palindromo.esPalindromo("ahabccbaaa"))
+                () -> assertFalse(Palindromo.esPalindromo("acas")),
+                () -> assertFalse(Palindromo.esPalindromo("ahabccbaaa"))
         );
     }
 
@@ -52,12 +52,12 @@ class PalindromoTest {
 
     @Test
     void quitarTildesTest() {
-        assertEquals("aeiou", Palindromo.quitarTildes("áéióu"));
+        assertEquals("aeiou", Palindromo.quitarTildeVocales("áéióu"));
     }
 
     @Test
     void quitarPuntuaciones() {
-        assertEquals("Ab", Palindromo.quitarPuntuaciones("A. ,b;: '?*}{) !¡¡¿"));
+        assertEquals("Ab", Palindromo.quitarTodoMenosLetrasYNumeros("A. ,b;: '?*}{) !¡¡¿"));
     }
 
     @Test

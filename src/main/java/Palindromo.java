@@ -4,7 +4,6 @@ public class Palindromo {
     public static void main(String[] args) {
         String texto = ingresarTexto();
         System.out.println(esPalindromo(texto));
-
     }
 
     public static boolean esPalindromo(String texto) {
@@ -17,21 +16,21 @@ public class Palindromo {
     private static String formatearTexto(String texto) {
         texto = texto.toLowerCase();
         texto = quitarEspacios(texto);
-        texto = quitarTildes(texto);
-        texto = quitarPuntuaciones(texto);
+        texto = quitarTildeVocales(texto);
+        texto = quitarTodoMenosLetrasYNumeros(texto);
         return texto;
     }
 
-    public static String quitarPuntuaciones(String texto) {
+    public static String quitarTodoMenosLetrasYNumeros(String texto) {
         return texto.replaceAll("[^\\w\\d]", "");
     }
 
-    public static String quitarTildes(String texto) {
-        char[] vocalesConTilde = {'á', 'é', 'í', 'ó', 'ú'};
-        char[] vocalesSinTilde = {'a', 'e', 'i', 'o', 'u'};
+    public static String quitarTildeVocales(String texto) {
+        char[] vocalConTilde = {'á', 'é', 'í', 'ó', 'ú'};
+        char[] vocalSinTilde = {'a', 'e', 'i', 'o', 'u'};
 
-        for (int i = 0; i < vocalesConTilde.length; i++) {
-            texto = texto.replace(vocalesConTilde[i], vocalesSinTilde[i]);
+        for (int i = 0; i < vocalConTilde.length; i++) {
+            texto = texto.replace(vocalConTilde[i], vocalSinTilde[i]);
         }
         return texto;
     }
