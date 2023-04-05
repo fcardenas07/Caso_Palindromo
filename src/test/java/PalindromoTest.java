@@ -1,0 +1,87 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class PalindromoTest {
+
+    @Test
+    void doscientosDebeRetornarFalse() {
+        assertFalse(Palindromo.esPalindromo("200"));
+    }
+
+    @Test
+    void cadenaVaciaDebeRetornarFalse() {
+        assertFalse(Palindromo.esPalindromo(""));
+    }
+
+    @Test
+    void palabrasPalindromo() {
+        assertAll("Son Palindromos",
+                () -> assertTrue(Palindromo.esPalindromo("aca")),
+                () -> assertTrue(Palindromo.esPalindromo("h")),
+                () -> assertTrue(Palindromo.esPalindromo("aaabccbaaa")),
+                () -> assertTrue(Palindromo.esPalindromo("101"))
+        );
+    }
+
+    @Test
+    void frasesPalidromos() {
+        assertAll("Frases Palindromos",
+                () -> assertTrue(Palindromo.esPalindromo("La tele letal")),
+                () -> assertTrue(Palindromo.esPalindromo("Atar a la rata"))
+        );
+    }
+
+    @Test
+    void palabrasNoPalindromo() {
+        assertAll("No son Palindromos",
+                () -> assertTrue(Palindromo.esPalindromo("acas")),
+                () -> assertTrue(Palindromo.esPalindromo("ahabccbaaa"))
+        );
+    }
+
+    @Test
+    void quitarEspacioTest() {
+        assertEquals("HolaMundo", Palindromo.quitarEspacios("Hola Mundo"));
+    }
+
+    @Test
+    void quitarVariosEspaciosTest() {
+        assertEquals("HolaMundo", Palindromo.quitarEspacios(" Ho l a   M u ndo  "));
+    }
+
+    @Test
+    void quitarTildesTest() {
+        assertEquals("aeiou", Palindromo.quitarTildes("áéióu"));
+    }
+
+    @Test
+    void quitarPuntuaciones() {
+        assertEquals("Ab", Palindromo.quitarPuntuaciones("A. ,b;: '?*}{) !¡¡¿"));
+    }
+
+    @Test
+    void palindromoMasGrandeDelMundoTest() {
+        assertTrue(Palindromo.esPalindromo("""
+                Amor azul
+                                
+                Ramera, de todo te di.
+                                
+                Mariposa colosal, sí,
+                                
+                yo de todo te di.
+                                
+                Poda la rosa, Venus.
+                                
+                El átomo como tal
+                                
+                es un evasor alado.
+                                
+                Pide, todo te doy: isla,
+                                
+                sol, ocaso, pirámide.
+                                
+                Todo te daré: mar, luz, aroma.
+                """));
+    }
+}
