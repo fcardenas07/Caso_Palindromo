@@ -19,10 +19,19 @@ class PalindromoTest {
         assertAll("Son Palindromos",
                 () -> assertTrue(Palindromo.esPalindromo("aca")),
                 () -> assertTrue(Palindromo.esPalindromo("h")),
-                () -> assertTrue(Palindromo.esPalindromo("aaabccbaaa")),
-                () -> assertTrue(Palindromo.esPalindromo("101"))
+                () -> assertTrue(Palindromo.esPalindromo("aaabccbaaa"))
         );
     }
+
+    @Test
+    void numeroPalindromoTest(){
+        assertAll("Son palindromos",
+                () -> assertTrue(Palindromo.esPalindromo("101")),
+                () -> assertTrue(Palindromo.esPalindromo("110.010010011"))
+                );
+    }
+
+
 
     @Test
     void frasesPalidromos() {
@@ -36,7 +45,8 @@ class PalindromoTest {
     void palabrasNoPalindromo() {
         assertAll("No son Palindromos",
                 () -> assertFalse(Palindromo.esPalindromo("acas")),
-                () -> assertFalse(Palindromo.esPalindromo("ahabccbaaa"))
+                () -> assertFalse(Palindromo.esPalindromo("ahabccbaaa")),
+                () -> assertFalse(Palindromo.esPalindromo("😁😊😂"))
         );
     }
 

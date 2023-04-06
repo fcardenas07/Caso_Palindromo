@@ -13,7 +13,7 @@ public class Palindromo {
         return texto.equals(invertirTexto(texto));
     }
 
-    private static String formatearTexto(String texto) {
+    public static String formatearTexto(String texto) {
         texto = texto.toLowerCase();
         texto = quitarEspacios(texto);
         texto = quitarTildeVocales(texto);
@@ -24,6 +24,7 @@ public class Palindromo {
     public static String quitarTodoMenosLetrasYNumeros(String texto) {
         return texto.replaceAll("[^\\w\\d]", "");
     }
+
 
     public static String quitarTildeVocales(String texto) {
         char[] vocalConTilde = {'á', 'é', 'í', 'ó', 'ú'};
