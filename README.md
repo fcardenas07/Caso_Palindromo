@@ -63,7 +63,7 @@ Considerando que aún se mantiene el código original;
 
 **3.4 ¿Qué resultados arrojan sus Test con estas entradas: “aca”, “acas”, “h”?**
 
-Paso la prueba, no la pasó y la pasó, respectivamente.
+Paso la prueba, no la pasó y no la pasó, respectivamente.
 
 **4.1 Considere los siguientes casos de prueba, no codifique NADA, discuta en su grupo.**
 
