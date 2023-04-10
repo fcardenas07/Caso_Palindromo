@@ -1,4 +1,7 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,40 +17,41 @@ class PalindromoTest {
         assertFalse(Palindromo.esPalindromo(""));
     }
 
-    @Test
-    void palabrasPalindromo() {
-        assertAll("Son Palindromos",
-                () -> assertTrue(Palindromo.esPalindromo("aca")),
-                () -> assertTrue(Palindromo.esPalindromo("h")),
-                () -> assertTrue(Palindromo.esPalindromo("aaabccbaaa"))
-        );
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "h", "g"})
+    void letrasNoSonPalindromosTest(String letra) {
+        assertFalse(Palindromo.esPalindromo(letra));
     }
 
-    @Test
-    void numeroPalindromoTest(){
-        assertAll("Son palindromos",
-                () -> assertTrue(Palindromo.esPalindromo("101")),
-                () -> assertTrue(Palindromo.esPalindromo("110.010010011"))
-                );
+    @ParameterizedTest
+    @ValueSource(strings = {"aca", "aaabccbaaa", "reconocer", "rodador"})
+    void palabrasPalindromoTest(String palabra) {
+        assertTrue(Palindromo.esPalindromo(palabra));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"101", "110.010010011"})
+    void numerosPalindromoTest(String numero) {
+        assertTrue(Palindromo.esPalindromo(numero));
     }
 
 
-
-    @Test
-    void frasesPalidromos() {
-        assertAll("Frases Palindromos",
-                () -> assertTrue(Palindromo.esPalindromo("La tele letal")),
-                () -> assertTrue(Palindromo.esPalindromo("Atar a la rata"))
-        );
+    @ParameterizedTest
+    @ValueSource(strings = {"La tele letal", "Atar a la rata", "¿Acaso hubo búhos acá?"})
+    void frasesPalindromoTest(String frase) {
+        assertTrue(Palindromo.esPalindromo(frase));
     }
 
-    @Test
-    void palabrasNoPalindromo() {
-        assertAll("No son Palindromos",
-                () -> assertFalse(Palindromo.esPalindromo("acas")),
-                () -> assertFalse(Palindromo.esPalindromo("ahabccbaaa")),
-                () -> assertFalse(Palindromo.esPalindromo("😁😊😂"))
-        );
+    @ParameterizedTest
+    @ValueSource(strings = {"acas", "palabra", "ahabccbaaa"})
+    void palabrasNoPalindromosTest(String palabra) {
+        assertFalse(Palindromo.esPalindromo(palabra));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"😁😊😂", "!°\"#$*][¨:_;^{^'?¡¿~"})
+    void soloCaracteresEspecialesDebeRetornarFalse(String cadena) {
+        assertFalse(Palindromo.esPalindromo(cadena));
     }
 
     @Test
@@ -71,6 +75,7 @@ class PalindromoTest {
     }
 
     @Test
+    @DisplayName("Palindromo \"Amor Azul\" Dario Lancini")
     void palindromoMasGrandeDelMundoTest() {
         assertTrue(Palindromo.esPalindromo("""
                 Amor azul
