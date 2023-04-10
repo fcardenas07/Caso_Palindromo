@@ -9,7 +9,7 @@ public class Palindromo {
     public static boolean esPalindromo(String texto) {
         texto = formatearTexto(texto);
 
-        if (texto.isBlank()) return false;
+        if (texto.isBlank() || texto.length() < 2) return false;
         return texto.equals(invertirTexto(texto));
     }
 
