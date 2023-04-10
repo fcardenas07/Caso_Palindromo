@@ -53,8 +53,63 @@ El método puede fallar si el String recibido contiene mayúsculas y minúsculas
 
 **3.2 A partir de su plan de pruebas, diseñe los casos de pruebas unitarias a implementar (aún no codifique nada!!!), considere al menos 5.**
 
-Considerando que aún se mantiene el código original, 
+Considerando que aún se mantiene el código original; 
 
+1. Probar que si se entrega un String vacio como parámetro, el método esPalindromo() retorne falso.
+2. Probar que si se entrega una palabra que es palíndromo, el método esPalindromo() retorne verdadero.
+3. Probar que si se entrega una palabra que no es palíndromo, el método esPalindromo() retorne falso.
+4. Similar a 3 y 4, pero probar con una oración(contiene espacios).
+5. Probar si el método quita los espacios.
+
+**3.4 ¿Qué resultados arrojan sus Test con estas entradas: “aca”, “acas”, “h”?**
+
+Paso la prueba, no la pasó y la pasó, respectivamente.
+
+**4.1 Considere los siguientes casos de prueba, no codifique NADA, discuta en su grupo.**
+
+- Caso de prueba 1:
+
+***Input: 200 (número entero)***
+
+Output: Debería dar error.
+
+- Caso de prueba 2:
+
+***Input: “” (cadena vacía)***
+
+Output: Falso, no es palíndromo.
+
+- Caso de prueba 3:
+
+***Input: “aaabccbaaa”***
+
+Output: Verdadero, es palíndromo.
+
+- Caso de prueba 4:
+
+***Input: “ahabccbaaa”***
+
+Output: Falso, no es palíndromo.
+
+- Caso de prueba 5:
+
+***Input: “La tele letal”***
+
+Output: En este caso es falso, ya que el código no considera las mayúsculas y minúsculas como iguales.
+
+**4.2 De las pruebas analizadas, concluya y construya una versión mejorada de su método. Construya además nuevas pruebas unitarias considerando los casos anteriores y verifique sus resultados teóricos con los empíricos.**
+
+***¿Qué consideraciones tomaron en cuenta?***
+
+Tomamos en cuenta que el input puede tener mayúsculas, minúsculas, espacios, saltos de linea, numeros, tildes, signos de puntuación, etc. Se crearon métodos para formatear el input y que así el programa funcione para cualquier input.
+
+***¿Qué mejoró en su método?***
+
+El método ahora funciona para mas situaciones, ya que tiene en consideración lo anterior.
+
+***¿Qué rol jugaron las pruebas en mejorar su código?***
+
+Las pruebas, además de comprobar que el método funcionara eficazmente, ayudaron a la creación de los métodos, ya que en ocasiones guiaban a nuevos fallos los cuales se solucionaban a través de nuevos métodos.
 
 
 ==========================
